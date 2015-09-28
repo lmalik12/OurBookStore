@@ -4,7 +4,7 @@
 }
 
 #logo, #welcomeBanner  {
-	background-color: #00ccff;
+	background-color: #d685ff;
 	height: 212px;
 	margin-top: 50px;
 	margin-left: 20px;
@@ -24,7 +24,7 @@
 #navigationMenu ul li {
 	list-style:none;
 	padding: 20px;
-	color:#fff;
+	color: purple;
 	font-size: 16pt;
 	font-family: 'Arial', sans-serif;
 	border-bottom:#fff solid;
@@ -34,6 +34,7 @@
 }
 
 #navigationMenu ul li:hover {
+	color: red;
 	background-color: yellow;
 	font-family: 'Times New Roman', monospace;
 }
@@ -70,9 +71,8 @@
 
 #productList .product:hover .product-price {
 	opacity: 1;
-	background-color: red;
+	background-color: #eac2ff;
 	color: #fff;
-	height: auto;
 	padding: 2px;
 }
 
@@ -93,7 +93,7 @@
 }
 
 #footer {
-	background-color: #00ccff;
+	background-color: #d685ff;
 	height: 50px;
 	margin-top: 50px;
 	margin-left: 20px;
