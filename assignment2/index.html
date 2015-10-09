@@ -3,8 +3,8 @@
 		<link rel="stylesheet" href="css/styleMe.css">
 		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<script src="http://ece.ubc.ca/~kbajaj/cpen400a/jquery.js" type="text/javascript"></script>
-		<script src="http://ece.ubc.ca/~kbajaj/cpen400a/test1.js" type="text/javascript"></script>
+		<!-- // <script src="http://ece.ubc.ca/~kbajaj/cpen400a/jquery.js" type="text/javascript"></script> -->
+		<!-- // <script src="http://ece.ubc.ca/~kbajaj/cpen400a/test1.js" type="text/javascript"></script> -->
 	</head>
 
 	<body class="content">
@@ -40,6 +40,11 @@
 
 				<!-- Row -->
 				<div class="col-md-4 product">
+					<span class="bringToFront"> 
+						<button type="button" class="addToCart cartButtons" data-id="Box1"> Add </button>
+						<button type="button" class="removeFromCart cartButtons" data-id="Box1"> Remove </button>
+					</span>
+					<span class="cart"><img src="images/cart.png"></span>
 					<img src="images/Box1_$10.png">
 					<span><p>Box1</p></span>
 					<span class="product-price"><p>$10</p></span>
@@ -125,5 +130,6 @@
 		<!-- Scripts -->
 		<script src="js/jquery-2.1.4.min.js"></script>
 		<script src="js/bootstrap.js"></script>
+		<script src="js/main.js"></script>
 	</body>
 </html>

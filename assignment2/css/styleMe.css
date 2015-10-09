@@ -70,11 +70,52 @@
 }
 
 #productList .product:hover .product-price {
-	opacity: 1;
+	opacity: 0.5;
 	background-color: #eac2ff;
 	color: #fff;
 	padding: 2px;
 }
+ #productlist .product .cartButtons{
+ 	opacity: 0;
+ 	bottom: 60px;
+ }
+.bringToFront{
+	z-index: 100;
+}
+
+.addToCart{
+	background-color: green;
+	color: white;
+}
+
+.removeFromCart{
+	background-color: red;
+	color: white;
+}
+
+#productlist .product:hover .cartButtons{
+	opacity: 1;
+
+}
+
+#productList .product .cart {
+	opacity: 0;
+	max-height:50%;
+	max-width: 50%;
+	text-align: center;
+	padding: 2px;
+	bottom: 40px;
+	left: 20px;
+}
+
+#productList .product:hover .cart {
+	opacity: 1;
+	text-align: center;
+	max-height:100%;
+	max-width:100%;
+	padding: 2px;
+}
+
 
 #productList span {
 	position: absolute;
