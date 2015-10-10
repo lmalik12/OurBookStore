@@ -8,6 +8,7 @@
 	height: 212px;
 	margin-top: 50px;
 	margin-left: 20px;
+	text-align:center;
 }
 
 #navigationMenu {
@@ -66,42 +67,33 @@
 #productList .product .product-price {
 	text-align: center;
 	opacity: 0;
-	bottom: 40px;
+	bottom: 30px;
 }
 
 #productList .product:hover .product-price {
-	opacity: 0.5;
+	opacity: 0.8;
 	background-color: #eac2ff;
 	color: #fff;
 	padding: 2px;
 }
  #productlist .product .cartButtons{
  	opacity: 0;
- 	bottom: 60px;
  }
+
 .bringToFront{
 	z-index: 100;
 }
 
-.addToCart{
-	background-color: green;
-	color: white;
-}
-
-.removeFromCart{
-	background-color: red;
-	color: white;
-}
-
 #productlist .product:hover .cartButtons{
+	position: relative;
 	opacity: 1;
-
+	bottom: 80px;
 }
 
 #productList .product .cart {
 	opacity: 0;
-	max-height:50%;
-	max-width: 50%;
+	max-height:100%;
+	max-width: 100%;
 	text-align: center;
 	padding: 2px;
 	bottom: 40px;
@@ -115,7 +107,6 @@
 	max-width:100%;
 	padding: 2px;
 }
-
 
 #productList span {
 	position: absolute;

@@ -1,3 +1,5 @@
+
+// Global variables
 var cart = {
 };
 
@@ -16,17 +18,41 @@ var products = {
 	tent: 100
 };
 
-var Button = function(){
+// Initialize at the start
+var inactiveTime = window.setInterval(function(){
+	alert("Hey there! Are you still planning to buy something?");
+},30000);
+
+
+var Button = function(cart){
 
 	$(".addToCart").click(function(){
 		var productName = $(".addToCart").data().id;
 		addToCart(productName);
+
+		window.clearInterval(inactiveTime);
+		console.log("cleared timer interval");
 	});
 
 	$(".removeFromCart").click(function(){
 		var productName = $(".removeFromCart").data().id;
 		removeFromCart(productName);
+
+		window.clearInterval(inactiveTime);
+		console.log("cleared timer interval");
 	});
+
+
+	// $(".cartTotal").click(function(cart){
+	// 	for(key in cart){
+	// 		console.log(key);
+	// 		console.log(cart);
+
+	// 		if(cart.hasOwnProperty(key)){
+	// 			console.log("1" + key);
+	// 		}
+	// 	}
+	// })
 };
 
 Button();
@@ -50,9 +76,16 @@ var removeFromCart = function(prodName){
 	console.log("prodName is", prodName);
 
 	if(cart[prodName] > 0){
+		console.log("cart > 0");
 		var value = cart[prodName];
 		cart[prodName] = value - 1;
-	}
+
+	} else {
+
+		console.log("else");		
+		delete cart[prodName];
+		alert("Your cart currently has no " + prodName);
+	};
 	console.log("Update: remove from Cart", cart);	
 };
 
