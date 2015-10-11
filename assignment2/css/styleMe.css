@@ -107,6 +107,15 @@
 	max-width:100%;
 	padding: 2px;
 }
+.cartTotal{
+	position: relative;
+	bottom: -100px;
+	float: right;
+}
+
+.icon{
+	position: relative;
+}
 
 #productList span {
 	position: absolute;
