@@ -26,22 +26,37 @@ var inactiveTime = window.setInterval(function(){
 
 var Button = function(cart){
 
-	$(".addToCart").click(function(){
-		var productName = $(".addToCart").data().id;
+	$(".addToCart").on('click', function(event){ // capture the click events, this ensures click handling for multiple buttons
+		var productName = $(event.target).closest('button').data().id; // closest() get the first element that matches the selector
 		addToCart(productName);
 
 		window.clearInterval(inactiveTime);
 		console.log("cleared timer interval");
 	});
 
-	$(".removeFromCart").click(function(){
-		var productName = $(".removeFromCart").data().id;
+	// $(".addToCart").click(function(){
+	// 	var productName = $(".addToCart").data().id;
+	// 	addToCart(productName);
+	//
+	// 	window.clearInterval(inactiveTime);
+	// 	console.log("cleared timer interval");
+	// });
+
+	$(".removeFromCart").on('click', function(event){
+		var productName =$(event.target).closest('button').data().id;
 		removeFromCart(productName);
 
 		window.clearInterval(inactiveTime);
 		console.log("cleared timer interval");
 	});
 
+	// $(".removeFromCart").click(function(){
+	// 	var productName = $(".removeFromCart").data().id;
+	// 	removeFromCart(productName);
+	//
+	// 	window.clearInterval(inactiveTime);
+	// 	console.log("cleared timer interval");
+	// });
 
 	// $(".cartTotal").click(function(cart){
 	// 	for(key in cart){
@@ -53,6 +68,8 @@ var Button = function(cart){
 	// 		}
 	// 	}
 	// })
+
+
 };
 
 Button();
@@ -67,7 +84,7 @@ var addToCart = function(prodName){
 		}else{
 			cart[prodName] = 1;
 		}
-	console.log("Update: add to Cart", cart);	
+	console.log("Update: add to Cart", cart);
 };
 
 
@@ -82,33 +99,9 @@ var removeFromCart = function(prodName){
 
 	} else {
 
-		console.log("else");		
+		console.log("else");
 		delete cart[prodName];
 		alert("Your cart currently has no " + prodName);
 	};
-	console.log("Update: remove from Cart", cart);	
+	console.log("Update: remove from Cart", cart);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
