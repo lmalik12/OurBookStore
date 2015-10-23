@@ -49,9 +49,28 @@ var Button = function(){
 		if( jQuery.isEmptyObject(cart) == true){
 			alert(" Your cart is empty");
 		} else {
-			//  Otherwise list all the items one by one
+		//  Otherwise list all the items one by one
+		var flag = false; 
+		var i = 0;
+		var arr = [];
+
 			for(key in cart){
-				alert("Your cart contains " + cart[key] + " " + key);
+				arr.push(key);
+				console.log("arr", arr);
+
+				if(flag){
+					var timer = setTimeout(function(i){
+						console.log("what is i: ", i);
+						alert("Your cart contains " + cart[key] + " " + arr[i]);
+					}, i * 2000,i);
+					flag = true;
+				}
+
+				if(!flag){
+					alert("Your cart contains " + cart[key] + " " + key);
+					flag = true;
+				}
+				i++;
 			}
 		}
 	});
