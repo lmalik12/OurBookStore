@@ -16,8 +16,8 @@
 
 				<!-- Welcome banner-->
 				<div id="welcomeBanner" class="col-md-8"><h1>Welcome to the BookStore </h1>
-					<button type="button" class="btn btn-default cartTotal">
-						<span class="glyphicon glyphicon-shopping-cart"></span> Show Cart </button>
+					<div  class="cartTotal">
+						<input type="button" class="btn btn-default" id="s1" value="" data-toggle="modal" data-target="#myModal"/>
 				</div>
 		</div>
 
@@ -227,11 +227,38 @@
 
 			</div>
 
-		</div>
+				  <!-- Modal -->
+			<div class="modal fade" id="myModal" role="dialog">
+			    <div class="modal-dialog modal-lg">
+				    
+			      <!-- Modal content-->
+				    <div class="modal-content">
+				        <div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+					        <h4 class="modal-title">Your Cart</h4>
+					    </div>
 
+					    <div class="modal-body" id="modal-body"> 
+					    	<!-- My modal table will go here -->
+					    </div>
+
+					    <div class="modal-footer" id="modal-footer">
+					    	<button type="button" class="btn btn-success checkOut"> Checkout </button>
+					    </div>
+					</div>
+				      
+				</div>
+			</div>
+
+		</div>
 		<!-- Footer -->
 		<div id="footer" class="row">
-			<p>&copy; 2015. All rights reserved</p>
+			<div class="col-md-6 text-left">
+				<p>&copy; 2015. All Rights Reserved</p>
+			</div>
+			<div class="col-md-6 text-right">
+				<p>Time remaining: <span id="timer">--:--</span></p>
+			</div>
 		</div>
 		<!-- Scripts -->
 		<script src="js/jquery-2.1.4.min.js"></script>
