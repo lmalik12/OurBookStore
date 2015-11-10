@@ -158,6 +158,11 @@ var Button = function(){
 
 	//Initialize removal of all remove buttons
 	hideRemoveButton();
+
+	$(".checkOut").on('click', function(event){
+		console.log("checkout button clicked");
+		ajaxRequest();
+	});
 };
 
 Button();
@@ -253,22 +258,28 @@ function updateModal(productName){
 
 	var actualQ = cart[productName];
 	var actualP = (products[productName].price * cart[productName]);
+	var actualUP = products[productName].price;
 
 	var quantity = document.getElementsByClassName("rowq_" + productName);
 	var price = document.getElementsByClassName("rowp_" + productName);
+	var unitPrice = document.getElementsByClassName("rowup_"+ productName);
 	var totalPrice = document.getElementsByClassName("total-price");
-
 
 	if(quantity[0].innerHTML != actualQ){
 		quantity[0].innerHTML = cart[productName];
 	}
 
 	if(price[0].innerHTML != actualP){
-		price[0].innerHTML = ( "$ " + products[productName].price * cart[productName]);
+		price[0].innerHTML = ( "$" + products[productName].price * cart[productName]);
+	}
+
+	if(unitPrice[0].innerHTML != actualUP) {
+		unitPrice[0].innerHTML = ( "$" + products[productName].price);
+
 	}
 
 	//update the total-price
-	totalPrice[0].innerHTML = ("Total: $ " + cartPriceTotal());
+	totalPrice[0].innerHTML = ("Total: $" + cartPriceTotal());
 
 	if(quantity[0].innerHTML == 0){
 		document.getElementById("modal-table").deleteRow(thisRow);
@@ -405,6 +416,7 @@ function createModalTable(){
 			text5.appendChild(minus);
 
 			text2.classList.add("rowq_"+tempArr[i]);
+			text3.classList.add("rowup_"+tempArr[i]);
 			text4.classList.add("rowp_"+tempArr[i]);
 
 			td1.appendChild(text1);
@@ -426,10 +438,47 @@ function createModalTable(){
 
 			var p = document.createElement('h2');
 			p.classList.add("total-price");
-			p.innerHTML = ("Total: $ " + cartPriceTotal());
+			p.innerHTML = ("Total: $" + cartPriceTotal());
 		};
 
 		modalBody.appendChild(table);
 		$(modalFooter).prepend(p); // @before: modalFooter.appendChild(p)
 	}
 }
+
+function comparePriceAndQuantity() {
+	// check if the products in the cart are still available in the backstore
+	for (prod in cart) {
+		if (cart[prod] > 0) {
+
+			if (backstore[prod].quantity == 0) {
+				console.log("Sorry " + prod +" is unavailable!");
+				alert("Sorry " + prod +" is unavailable!");
+				cart[prod] = 0;
+				updateModal(prod);
+
+			} else { // else check if the quantity of products in the cart
+				if (cart[prod] !== backstore[prod].price) {
+					// update the product's price to the new price from the backstore
+					products[prod].price = backstore[prod].price;
+					console.log("Updated price of " + prod +" to $ " + products[prod].price);
+					alert("The price of " + prod +" is now $" + products[prod].price);
+					updateModal(prod);
+				}	
+
+				if (cart[prod] > backstore[prod].quantity) {
+					// update the product's quantity in cart
+					cart[prod] = backstore[prod].quantity;
+					console.log("Updated quantity of " + prod +" to " + cart[prod]);
+					alert("There's only " + cart[prod] + " of " + prod + " left in the store.");
+					updateModal(prod);
+				}
+			}
+		}
+	}
+
+	// calculate total
+	var t = cartPriceTotal();
+	console.log("New total: $" + t);
+	alert("Your Cart new total is : $ " + t);
+};
