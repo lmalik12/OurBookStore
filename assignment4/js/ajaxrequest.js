@@ -5,7 +5,7 @@ var ajaxRequest = function () {
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", "https://cpen400a.herokuapp.com/products");
 	xhr.onload= function(){
-		if(xhr.readyState == 4 & xhr.status == 200) {
+		if(xhr.status == 200) {
 			//console.log("Received: " + xhr.responseText);
 			
 			var contType = xhr.getResponseHeader("Content-Type");
