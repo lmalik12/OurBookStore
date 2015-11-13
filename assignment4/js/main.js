@@ -161,7 +161,11 @@ var Button = function(){
 
 	$(".checkOut").on('click', function(event){
 		console.log("checkout button clicked");
-		ajaxRequest();
+		if (cartPriceTotal() == 0) { 
+			return; 
+		} else { 
+			ajaxRequest();
+		}
 	});
 };
 
