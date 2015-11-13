@@ -448,6 +448,8 @@ function createModalTable(){
 
 function comparePriceAndQuantity() {
 	// check if the products in the cart are still available in the backstore
+	alert("We just need to confirm item availability and final total price before proceeding" + 
+		", it will just take a minute.");
 	for (prod in cart) {
 		if (cart[prod] > 0) {
 
@@ -480,5 +482,5 @@ function comparePriceAndQuantity() {
 	// calculate total
 	var t = cartPriceTotal();
 	console.log("New total: $" + t);
-	alert("Your Cart new total is : $ " + t);
+	alert("Your cart new total is: $" + t);
 };
