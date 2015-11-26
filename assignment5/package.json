@@ -7,13 +7,9 @@
     "start": "node index.js"
   },
   "dependencies": {
-<<<<<<< Updated upstream
     "express": "^4.13.3",
-    "mongodb": "2.0.49"
-=======
+    "mongodb": "2.0.49",
     "body-parser": "^1.14.1",
-    "express": "^4.13.3"
->>>>>>> Stashed changes
   },
   "engines": {
     "node": "4.0.0"

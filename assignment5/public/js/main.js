@@ -195,16 +195,14 @@ var Button = function(){
 
 					$.post("http://localhost:5000/checkout", {cart: finalCart, total: total}, function(data){
 						if(data === 'done') {
-							$('#myModal').modal('hide');
-							ajaxRequest(function() {
+							ajaxRequest(function(){
+								$('#myModal').modal('hide');
 								alert("Your order has been placed. Thank you for shopping with us.");	
 							});
-							
+													
 						}
 					});
 				}); 
-				// ajaxRequest();
-				// console.log(backstore);
 			});
 
 			
