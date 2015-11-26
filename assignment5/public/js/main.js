@@ -18,6 +18,7 @@ var cart = {
 // have 20 of each item
 var products = {
 	Box1: {
+<<<<<<< HEAD
 		'price':14,
 		'quantity': 20
 	},
@@ -63,6 +64,53 @@ var products = {
 	},
 	Tent: {
 		'price': 190,
+=======
+		'price':10,
+		'quantity': 20
+	},
+	Box2:{
+		'price': 5,
+		'quantity': 20
+	},
+	Clothes1: {
+		'price': 20,
+		'quantity': 20
+	},
+	Clothes2: {
+		'price': 30,
+		'quantity': 20
+	},
+	Jeans: {
+		'price': 50,
+		'quantity': 20
+	},
+	Keyboard: {
+		'price': 20,
+		'quantity': 20
+	},
+	KeyboardCombo: {
+		'price': 40,
+		'quantity': 20
+	},
+	Mice: {
+		'price': 20,
+		'quantity': 20
+	},
+	PC1: {
+		'price': 350,
+		'quantity': 20
+	},
+	PC2: {
+		'price': 400,
+		'quantity': 20
+	},
+	PC3: {
+		'price': 300,
+		'quantity': 20
+	},
+	Tent: {
+		'price': 100,
+>>>>>>> master
 		'quantity': 20
 	}
 };
@@ -71,11 +119,15 @@ var total = 0;
 var duration = 300000;
 var inactiveTime;
 
+<<<<<<< HEAD
 var flag = 0;
+=======
+>>>>>>> master
 // Start the timer when the page has finished loading
 window.onload = function() {
 	var display = document.querySelector("#timer");
 	startTimer(duration, display);
+<<<<<<< HEAD
 	//ajaxRequest();
 	if (flag == 0) { // initialized backstore on the first time page has finished loading
 		ajaxRequest(function(){
@@ -84,6 +136,9 @@ window.onload = function() {
 		});
 	}
 };
+=======
+}
+>>>>>>> master
 
 // Countdown timer
 var startTimer = function(duration, display){
@@ -104,7 +159,11 @@ var startTimer = function(duration, display){
 			window.onload(); // reset the timer
 		}
 	}, 1000);
+<<<<<<< HEAD
 };
+=======
+}
+>>>>>>> master
 
 var Button = function(){
 	//Initialize Event Handlers
@@ -172,6 +231,7 @@ var Button = function(){
 		if (cartPriceTotal() == 0) { 
 			return; 
 		} else { 
+<<<<<<< HEAD
 			
 			// sends an ajax request to the server to get data from the database
 			ajaxRequest(function(){
@@ -206,6 +266,11 @@ var Button = function(){
 			});
 
 			
+=======
+			console.log("backstore yall " + backstore);
+			comparePriceAndQuantity();
+			//ajaxRequest();
+>>>>>>> master
 		}
 	});
 };
@@ -491,7 +556,11 @@ function createModalTable(){
 	}
 }
 
+<<<<<<< HEAD
 function comparePriceAndQuantity(callback) {
+=======
+function comparePriceAndQuantity() {
+>>>>>>> master
 	// check if the products in the cart are still available in the backstore
 	alert("We just need to confirm item availability and final total price before proceeding" + 
 		", it will just take a minute.");
@@ -528,6 +597,7 @@ function comparePriceAndQuantity(callback) {
 	var t = cartPriceTotal();
 	console.log("New total: $" + t);
 	alert("Your cart new total is: $" + t);
+<<<<<<< HEAD
 	if (callback)
 		callback();
 };
@@ -539,3 +609,6 @@ function initialProductValues(){
 		products[item].price = backstore[item].price;
 	}
 }
+=======
+};
+>>>>>>> master

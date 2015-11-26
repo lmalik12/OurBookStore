@@ -38,6 +38,7 @@ MongoClient.connect(url, function(err, database) {
     });
 
     var p = [
+
       {name:'KeyboardCombo', price:40, quantity:20, image:'https://cpen400a.herokuapp.com/images/KeyboardCombo.png'},
       {name:'Mice', price:20, quantity:20, image:'https://cpen400a.herokuapp.com/images/Mice.png'},
       {name:'PC1', price:350, quantity:20, image:'https://cpen400a.herokuapp.com/images/PC1.png'},
@@ -50,6 +51,7 @@ MongoClient.connect(url, function(err, database) {
       {name:'Clothes2', price:30, quantity:20, image:'https://cpen400a.herokuapp.com/images/Clothes2.png'},
       {name:'Jeans', price:20, quantity:20, image:'https://cpen400a.herokuapp.com/images/Jeans.png'},
       {name:'Keyboard', price:30, quantity:20, image:'https://cpen400a.herokuapp.com/images/Keyboard.png'}
+
     ];
 
     var collection = db.collection('products');
