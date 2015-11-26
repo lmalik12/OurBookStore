@@ -76,6 +76,7 @@ MongoClient.connect(url, function(err, database) {
  */
 app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname + '../index.html'));
+  ajaxRequest();
 });
 
 /*

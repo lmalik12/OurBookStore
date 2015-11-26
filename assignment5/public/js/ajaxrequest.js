@@ -13,8 +13,10 @@ function ajaxRequest (callback) {
 				var result = JSON.parse(xhr.responseText);
 				console.log(result);
 				backstore = result;
+				initialProductValues();
 				if (callback) // check if there's a callback function before calling it
 					callback();
+
 			}
 		} else {
 			console.log("Received error code: " + xhr.status);

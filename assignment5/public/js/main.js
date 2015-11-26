@@ -76,7 +76,7 @@ var flag = 0;
 window.onload = function() {
 	var display = document.querySelector("#timer");
 	startTimer(duration, display);
-	
+	//ajaxRequest();
 	if (flag == 0) { // initialized backstore on the first time page has finished loading
 		ajaxRequest(function(){
 			console.log("'Backstore' is initialized");
@@ -196,11 +196,17 @@ var Button = function(){
 					$.post("http://localhost:5000/checkout", {cart: finalCart, total: total}, function(data){
 						if(data === 'done') {
 							$('#myModal').modal('hide');
-							alert("Your order has been placed. Thank you for shopping with us.");	
+							ajaxRequest(function() {
+								alert("Your order has been placed. Thank you for shopping with us.");	
+							});
+							
 						}
 					});
 				}); 
+				// ajaxRequest();
+				// console.log(backstore);
 			});
+
 			
 		}
 	});
@@ -527,3 +533,11 @@ function comparePriceAndQuantity(callback) {
 	if (callback)
 		callback();
 };
+
+// Call this function to get the initial values from the server
+function initialProductValues(){
+	for (item in products) {
+		products[item].quantity = backstore[item].quantity;
+		products[item].price = backstore[item].price;
+	}
+}
